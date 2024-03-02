@@ -2,12 +2,18 @@ import numpy as np
 
 
 class Converter:
-    """Methods for converting between colour spaces."""
+    """
+    Methods for directly converting between colour spaces.
+    
+    NOTE: Expects iris format as input. Hex strings should be in the format 
+    "#RRGGBB". For other colour spaces, they should be represented as a numpy
+    array of appropriate dtype.
+    """
 
     @staticmethod
     def hex2rgb(hex_str):
         """Convert hex string to RGB array."""
-        return np.array([int(hex_str[i : i + 2], 16) for i in (0, 2, 4)])
+        return np.array([int(hex_str[i: i + 2], 16) for i in (0, 2, 4)])
 
     @staticmethod
     def rgb2hex(rgb_arr):

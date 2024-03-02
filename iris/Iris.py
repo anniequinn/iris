@@ -86,3 +86,22 @@ class Iris:
 
         if self.iris_colour_space != "hex":
             self.iris_colours = np.array(self.iris_colours)
+
+    def convert_single_colour(self, colour, colour_space):
+        if self.iris_colour_space == "hex":
+            return HexColourSpace.to_colour_space(colour, colour_space)
+
+        elif self.iris_colour_space == "rgb":
+            return RGBColourSpace.to_colour_space(colour, colour_space)
+
+        elif self.iris_colour_space == "lab":
+            return LabColourSpace.to_colour_space(colour, colour_space)
+
+        elif self.iris_colour_space == "xyz":
+            return XYZColourSpace.to_colour_space(colour, colour_space)
+
+    def convert_colours(self, colour_space):
+        return [
+            self.convert_single_colour(colour, colour_space)
+            for colour in self.iris_colours
+        ]
