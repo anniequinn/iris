@@ -1,8 +1,19 @@
 import numpy as np
 
 
-class RGBXYZ:
-    """Methods for converting between RGB and XYZ colour spaces."""
+class Converter:
+    """Methods for converting between colour spaces."""
+
+    @staticmethod
+    def hex2rgb(hex_str):
+        """Convert hex string to RGB array."""
+        return np.array([int(hex_str[i : i + 2], 16) for i in (0, 2, 4)])
+
+    @staticmethod
+    def rgb2hex(rgb_arr):
+        """Convert RGB array to hex string."""
+        # return "#{:02x}{:02x}{:02x}".format(*rgb_arr)
+        return "#{:02x}{:02x}{:02x}".format(*map(int, rgb_arr))
 
     @staticmethod
     def rgb2xyz(rgb_arr):
@@ -65,10 +76,6 @@ class RGBXYZ:
         rgb_arr = np.round(rgb_arr).astype(int)
 
         return rgb_arr
-
-
-class XYZLab:
-    """Methods for converting between XYZ and CIELAB colour spaces."""
 
     @staticmethod
     def xyz2lab(xyz_arr):
