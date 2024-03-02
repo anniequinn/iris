@@ -4,6 +4,7 @@
 ## TODO list
 
 - Documentation of what is an accepted input structure
+- Support for inputs with different colour spaces
 - Add functionality to accept a list as input
 - Add unit tests
 - Add type checking
